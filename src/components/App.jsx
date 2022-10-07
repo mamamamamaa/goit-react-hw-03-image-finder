@@ -2,21 +2,24 @@ import { Component } from 'react';
 
 import { Searchbar } from './Searchbar/Searchbar';
 
+import { Imagegallery } from './ImageGalley/ImageGallery';
+
 export class App extends Component {
   state = {
     query: null,
   };
 
-  handleSubmit = evt => {
-    evt.preventDefault();
-    const query = evt.target.searchQuery.value;
-    this.setState({ query });
+  formData = query => {
+    if (this.state.query !== query) {
+      this.setState({ query: query });
+    }
   };
 
   render() {
     return (
       <section>
-        <Searchbar onSubmit={this.handleSubmit} />
+        <Searchbar formData={this.formData} />
+        {this.state.query && <Imagegallery query={this.state.query} />}
       </section>
     );
   }
