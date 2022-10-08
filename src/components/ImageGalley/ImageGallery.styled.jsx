@@ -11,6 +11,8 @@ export const ImageGallery = styled.ul`
   list-style: none;
   margin-left: auto;
   margin-right: auto;
+
+  margin-bottom: 30px;
 `;
 
 export const GalleryItem = styled.li`
