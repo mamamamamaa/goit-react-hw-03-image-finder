@@ -1,8 +1,14 @@
+import PropTypes from 'prop-types';
+
 import { LoaderWrapper } from './Loader.styled';
 import ContentLoader from 'react-content-loader';
 
 export const Loader = ({ children }) => {
   return <LoaderWrapper>{children}</LoaderWrapper>;
+};
+
+Loader.propTypes = {
+  children: PropTypes.element.isRequired,
 };
 
 export const MyLoader = props => (

@@ -2,6 +2,8 @@ import { Component } from 'react';
 
 import { InfinitySpin } from 'react-loader-spinner';
 
+import InfiniteScroll from 'react-infinite-scroll-component';
+
 import { imageSearch } from 'components/API/API';
 
 import { Searchbar } from './Searchbar/Searchbar';
@@ -65,13 +67,42 @@ export class App extends Component {
     return (
       <section>
         <Searchbar formData={this.formData} />
-        {this.state.query && (
+
+        {/* case with button "load more"  */}
+
+        {/* {this.state.query && (
           <Imagegallery data={this.state.data} setLargeImg={this.setLargeImg} />
         )}
+
         {this.state.data.length > 0 && (
           <LoadMore type="button" onClick={this.loadMore}>
             Load more
           </LoadMore>
+        )} */}
+
+        {/* case with infinite scroll */}
+
+        {this.state.query && (
+          <InfiniteScroll
+            dataLength={this.state.data.length}
+            next={this.loadMore}
+            hasMore={true}
+            loader={
+              <Loader>
+                <InfinitySpin width="200" color="#4366c0" />
+              </Loader>
+            }
+            endMessage={
+              <p style={{ textAlign: 'center' }}>
+                <b>Yay! You have seen it all</b>
+              </p>
+            }
+          >
+            <Imagegallery
+              data={this.state.data}
+              setLargeImg={this.setLargeImg}
+            />
+          </InfiniteScroll>
         )}
 
         {this.state.largeImg && (
@@ -81,9 +112,12 @@ export class App extends Component {
         )}
 
         {this.state.isLoaded && (
+          // spinner
           <Loader>
             <InfinitySpin width="200" color="#4366c0" />
           </Loader>
+
+          // sceleton
           // <MyLoader />
         )}
       </section>
