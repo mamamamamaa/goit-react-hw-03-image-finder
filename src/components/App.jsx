@@ -89,11 +89,6 @@ export class App extends Component {
             dataLength={this.state.data.length}
             next={this.loadMore}
             hasMore={true}
-            loader={
-              <Loader>
-                <InfinitySpin width="200" color="#4366c0" />
-              </Loader>
-            }
             endMessage={
               <p style={{ textAlign: 'center' }}>
                 <b>Yay! You have seen it all</b>
