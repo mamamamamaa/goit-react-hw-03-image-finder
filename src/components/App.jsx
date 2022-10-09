@@ -10,13 +10,15 @@ import { Searchbar } from './Searchbar/Searchbar';
 
 import { Imagegallery } from './ImageGalley/ImageGallery';
 
-import { LoadMore } from './LoadMore/LoadMore.styled';
+// import { LoadMore } from './LoadMore/LoadMore.styled';
 
 import { Modal } from './Modal/Modal';
 
 import { Modalpic } from './ModalPic/ModalPic';
 
-import { Loader, MyLoader } from './Loader/Loader';
+import { Loader } from './Loader/Loader';
+
+// import { MyLoader } from './Loader/Loader';
 
 export class App extends Component {
   state = {
